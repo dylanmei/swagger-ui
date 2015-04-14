@@ -1,5 +1,26 @@
 # Swagger UI
 
+*This is a custom version of swagger-ui. The original: [github.com/swagger-api/swagger-ui](https://github.com/swagger-api/swagger-ui)*
+
+The docker image is a sketch for Dejan Glozic's article on aggregating microservices endpoints: [dejanglozic.com/2014/06/25/micro-service-apis-with-some-swag-part-1](http://dejanglozic.com/2014/06/25/micro-service-apis-with-some-swag-part-1)
+
+It was implemented with Swagger spec 1.2 in mind.
+
+Modifications include:
+
+- `index.html` has been modified to read `<localhost>/apidocs.json`, which aggregates resource endpoints from multiple sources
+- A custom css file has been appended
+- A `nginx.conf` configures a cheap server for the swagger ui.
+- A new `Dockerfile.nginx` based on *gliderlabs/alpine* has been added. It includes **ONBUILD** steps for specifying custom `apidocs.json` and `nginx.conf` files in a customized build.
+
+Building a new docker image:
+
+```
+gulp
+docker build -t swagger-ui -f Dockerfile.nginx .
+docker run --rm --name swagger -p 8080:8080 swagger-ui
+```
+
 [![Build Status](https://travis-ci.org/swagger-api/swagger-ui.svg?branch=master)](https://travis-ci.org/swagger-api/swagger-ui)
 
 Swagger UI is part of the Swagger project.  The Swagger project allows you to produce, visualize and consume your OWN RESTful services.  No proxy or 3rd party services required.  Do it your own way.

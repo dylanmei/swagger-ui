@@ -1,0 +1,15 @@
+{
+    "apiVersion":"1.0",
+    "swaggerVersion":"1.2",
+    "apis":[{
+        "path": "http://swagger-ui.mybluemix.net/api-docs/projects.json",
+        "description":"Projects"
+    }, {
+        "path": "http://swagger-ui.mybluemix.net/api-docs/users.json",
+        "description":"Users"
+    }],
+    "info":{
+        "title":"30% Turtleneck, 70% Hoodie API Example",
+        "description":"This API doc demonstrates how API definitions can be aggregated in a micro-service system, as demonstrated at <a href=\"http://dejanglozic.com\">http://dejanglozic.com</a>."
+    }
+}

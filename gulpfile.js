@@ -77,12 +77,12 @@ gulp.task('dist', ['clean'], function() {
  * Processes less files into CSS files
  */
 gulp.task('less', ['clean'], function() {
-
   return gulp
     .src([
       './src/main/less/screen.less',
       './src/main/less/print.less',
-      './src/main/less/reset.less'
+      './src/main/less/reset.less',
+      './src/main/less/custom.less'
     ])
     .pipe(less())
     .on('error', log)
@@ -95,6 +95,11 @@ gulp.task('less', ['clean'], function() {
  * Copy lib and html folders
  */
 gulp.task('copy', ['less'], function() {
+  // copy apidocs.json
+  gulp
+    .src('./apidocs.json')
+    .pipe(gulp.dest('./dist'))
+    .on('error', log)
 
   // copy JavaScript files inside lib folder
   gulp

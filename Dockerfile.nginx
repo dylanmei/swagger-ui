@@ -1,0 +1,13 @@
+FROM gliderlabs/alpine
+
+RUN apk-install nginx
+RUN mkdir -p /tmp/nginx
+
+ADD nginx.conf /nginx.conf
+ADD dist /usr/html/swagger
+
+ONBUILD COPY ./nginx.conf /nginx.conf
+ONBUILD COPY ./apidocs.json /usr/html/swagger/apidocs.json
+
+EXPOSE 8080
+CMD nginx -c /nginx.conf

@@ -1,0 +1,6 @@
+.swagger-section #header form#api_selector .input input#input_apiKey {
+  display: none;
+}
+.swagger-section #header form#api_selector .input input#input_baseUrl {
+  width: 600px;
+}
