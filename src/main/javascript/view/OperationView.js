@@ -573,6 +573,11 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
       code = $('<code />').text('no content');
       pre = $('<pre class="json" />').append(code);
 
+    // PLAIN
+    } else if (contentType === 'text/plain') {
+      code = $('<code />').text(content);
+      pre = $('<pre class="json" />').append(code);
+
     // JSON
     } else if (contentType === 'application/json' || /\+json$/.test(contentType)) {
       var json = null;
